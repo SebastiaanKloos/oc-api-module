@@ -1,0 +1,30 @@
+{
+	"name": "october/api",
+	"type": "october-module",
+	"description": "API module for OctoberCMS",
+	"homepage": "https://codecycler.com",
+	"keywords": ["october cms", "october", "api"],
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Sebastiaan Kloos",
+			"email": "info@codecycler.com"
+		}
+	],
+	"require": {
+		"php": ">=7.0",
+		"composer/installers": "~1.0",
+		"october/rain": "~1.0"
+	},
+	"autoload": {
+        "psr-4": {
+            "Api\\": ""
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "minimum-stability": "dev"
+}
