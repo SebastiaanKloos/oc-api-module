@@ -22,7 +22,5 @@ public function registerGraphQLModels()
 ```
 * Create **/plugins/user/models/user/schema.graphql**
 
-> Schemas created for a model inside of a plugin should always use `extend type Query` to define a query.
-
 ## Test your schemas
 The modules comes with the GraphQL playground. Go to **/graphql-playground** in your browser and test your schema here. 
