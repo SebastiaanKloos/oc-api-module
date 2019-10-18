@@ -12,6 +12,8 @@ class ServiceProvider extends ModuleServiceProvider
 
 		$this->registerProviders();
 		$this->registerConfig();
+		$this->registerMiddlewares();
+		$this->registerSingletons();
 	}
 	
 	public function boot() 
@@ -28,6 +30,9 @@ class ServiceProvider extends ModuleServiceProvider
     {
         $config = Config::get('api.lighthouse');
         Config::set('lighthouse', $config);
+
+        $config = Config::get('api.graphql-playground');
+        Config::set('graphql-playground', $config);
     }
 
 	public function registerProviders()
@@ -41,5 +46,10 @@ class ServiceProvider extends ModuleServiceProvider
         App::singleton('api.schema', function () {
             return \Api\Classes\SchemaManager::instance();
         });
+    }
+
+    public function registerMiddlewares()
+    {
+        $this->app['router']->aliasMiddleware('api-checkauth', \Api\Middleware\CheckAuth::class);
     }
 }

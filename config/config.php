@@ -237,7 +237,7 @@ return [
         */
         'route' => [
             // 'prefix' => '',
-            // 'middleware' => ['web']
+            'middleware' => ['web', 'api-checkauth'],
             'domain' => env('GRAPHQL_PLAYGROUND_DOMAIN', null),
         ],
         /*

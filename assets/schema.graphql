@@ -1,4 +1,4 @@
-extend type Query {
+type Query {
     user(id: ID!): User @find(model: "Rainlab\\User\\Models\\User"),
     users: [User] @all(model: "Rainlab\\User\\Models\\User")
 }
