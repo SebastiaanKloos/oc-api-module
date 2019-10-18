@@ -2,6 +2,7 @@
 
 use App;
 use Config;
+use Api\Classes\SchemaSourceProvider;
 use October\Rain\Support\ModuleServiceProvider;
 
 class ServiceProvider extends ModuleServiceProvider
@@ -14,6 +15,8 @@ class ServiceProvider extends ModuleServiceProvider
 		$this->registerConfig();
 		$this->registerMiddlewares();
 		$this->registerSingletons();
+
+        App::make('October\Rain\Support\ClassLoader')->addDirectories(base_path('graphql'));
 	}
 	
 	public function boot() 
@@ -46,6 +49,8 @@ class ServiceProvider extends ModuleServiceProvider
         App::singleton('api.schema', function () {
             return \Api\Classes\SchemaManager::instance();
         });
+
+        App::singleton(\Nuwave\Lighthouse\Schema\Source\SchemaSourceProvider::class, \Api\Classes\SchemaSourceProvider::class);
     }
 
     public function registerMiddlewares()

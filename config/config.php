@@ -47,7 +47,7 @@ return [
         |
         */
         'schema' => [
-            'register' => base_path('graphql/schema.graphql'),
+            'register' => '',
         ],
         /*
         |--------------------------------------------------------------------------
@@ -82,7 +82,10 @@ return [
             'interfaces' => 'App\\GraphQL\\Interfaces',
             'unions' => 'App\\GraphQL\\Unions',
             'scalars' => 'App\\GraphQL\\Scalars',
-            'directives' => ['App\\GraphQL\\Directives'],
+            'directives' => [
+                'App\\GraphQL\\Directives',
+                'Api\\Schema\\Directives',
+            ],
         ],
         /*
         |--------------------------------------------------------------------------
